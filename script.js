@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
       "https://picsum.photos/id/239/200/300",
     ];
 
-    // Download all images in parallel
+   
     const promises = imageUrls.map(downloadImage);
 
     Promise.all(promises)
