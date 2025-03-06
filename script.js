@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const output = document.getElementById("output");
 
-  // Create loading and error messages (only once)
+ 
   const loadingDiv = document.createElement("div");
   loadingDiv.id = "loading";
   loadingDiv.innerText = "Loading...";
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   errorDiv.style.display = "none";
   output.appendChild(errorDiv);
 
-  // Function to download a single image
+ 
   function downloadImage(url) {
     return new Promise((resolve, reject) => {
       const img = new Image();
@@ -24,14 +24,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Function to download all images
+  
   function downloadImages() {
-    // ❗ Clear only images (preserve loading/error messages)
+   
     const images = output.querySelectorAll("img");
     images.forEach((img) => img.remove());
 
-    errorDiv.style.display = "none"; // Hide error
-    loadingDiv.style.display = "block"; // Show loading
+    errorDiv.style.display = "none"; 
+    loadingDiv.style.display = "block"; 
 
     const imageUrls = [
       "https://picsum.photos/id/237/200/300",
@@ -45,17 +45,17 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((images) => {
         loadingDiv.style.display = "none"; // Hide loading
 
-        // Append images
+      
         images.forEach((img) => output.appendChild(img));
       })
       .catch((error) => {
-        loadingDiv.style.display = "none"; // Hide loading
+        loadingDiv.style.display = "none"; 
         errorDiv.innerText = error;
-        errorDiv.style.display = "block"; // Show error message
+        errorDiv.style.display = "block"; 
       });
   }
 
-  // Add event listener to the button
+ 
   document
     .getElementById("download-images-button")
     .addEventListener("click", downloadImages);
